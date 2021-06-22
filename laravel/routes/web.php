@@ -30,7 +30,7 @@ Route::get('/product', function () {
 
 
 Route::get('/product/{id}', function ($id) {
-    return ('Fiche du produit .$id');
+    return ('Fiche du produit' .'$id');
 });
 
 
