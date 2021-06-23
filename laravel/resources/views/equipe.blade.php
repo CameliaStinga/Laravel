@@ -10,8 +10,8 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
         crossorigin="anonymous"
     />
-    <link href="../../public/styleCbootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="../../public/style-menu.css" rel="stylesheet" type="text/css" />
+    <link href="../../public/css/styleCbootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../../public/css/style-menu.css" rel="stylesheet" type="text/css" />
     <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"

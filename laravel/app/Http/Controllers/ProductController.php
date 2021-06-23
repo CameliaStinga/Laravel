@@ -11,10 +11,10 @@ class ProductController extends Controller
         return view ('product-list');
     }
 
-    public function detailsProduit($id) {
+    public function detailsProduit() {
 
         //echo "Fiche du produit . $id";
 
-        return view ('product-details'). $id;
+        return view ('product-details');
     }
 }
