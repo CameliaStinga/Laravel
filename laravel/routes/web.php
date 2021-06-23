@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'homePage']);
+
+use App\Http\Controllers\EquipeController;
+
+Route::get('/equipe', [EquipeController::class, 'equiPe']);
 
 use App\Http\Controllers\ProductController;
 
@@ -24,15 +28,15 @@ Route::get('/product/{id}', [ProductController::class, 'detailsProduit']);
 
 use App\Http\Controllers\CartController;
 
-Route::get('/cart', [CartController::class, 'panier']);*/
+Route::get('/cart', [CartController::class, 'panier']);
 
 
-Route::get('/', function () {
-    return view('helloworld');
-});
+//Route::get('/', function () {
+   // return view('helloworld');
+//});
 
-/*
-Route::get('/', function () {
+
+/*Route::get('/', function () {
     return ('Home page');
 });
 
