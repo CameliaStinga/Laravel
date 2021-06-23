@@ -6,6 +6,7 @@ class CartController extends Controller
 {
     public function panier() {
 
-        echo "Panier";
+        //echo "Panier";
+        return view ('cart');
     }
 }

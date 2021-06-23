@@ -1,4 +1,7 @@
 <html>
+<body>
 
-<p> Home page </p>
+<strong> Home page </strong>
+
+</body>
 </html>

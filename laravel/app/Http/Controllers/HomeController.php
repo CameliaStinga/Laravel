@@ -6,7 +6,8 @@ namespace App\Http\Controllers ;
     {
         public function homePage() {
 
-            echo "Home page";
+           //echo "Home page";
+            return view ('homepage');
         }
 }
 
