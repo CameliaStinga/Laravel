@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers ;
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function listeProduits() {
-
-        //echo "Liste des produits";
-
+    public function  afficheProduct(){
         return view ('product-list');
+
     }
 
-    public function detailsProduit() {
-
-        //echo "Fiche du produit . $id";
-
-        return view ('product-details');
+    public function  detailProduit($id){
+        return view ('product-details',
+            ['cleproduit'=>$id]);
     }
 }
+
+?>
