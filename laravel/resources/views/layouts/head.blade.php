@@ -10,6 +10,7 @@
     />
     <link href="/css/styleCbootstrap.css" rel="stylesheet" type="text/css" />
     <link href="/css/style-menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/styleB.css" rel="stylesheet" type="text/css" />
     <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"

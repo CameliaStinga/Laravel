@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 
 Route::get('/product/{id}', [ProductController::class,'detailProduit']);
-//Route::get('/product/{id}', [ProductController::class,'afficheProduct']);
+Route::get('/product', [ProductController::class,'afficheProduct']);
 
 Route::get('/contact', [contactController::class,'afficheContact']);
 

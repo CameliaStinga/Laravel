@@ -1,8 +1,8 @@
 
-  @extends('layout')
+  @extends('layouts.main')
 
   @section('content')
-  
+
 
     <section class="Bcatalogue">
       <div class="container">
