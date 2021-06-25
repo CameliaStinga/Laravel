@@ -1,10 +1,11 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\BackofficeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,11 @@ Route::get('/', [HomeController::class, 'homePage']);
 
 Route::get('/equipe', [EquipeController::class, 'equiPe']);
 
+Route::get('/backoffice',[BackofficeController::class, 'indexProduct'] );
+
+//Route::get('/backoffice', function () {
+   //return view('backoffice');
+//});
 
 /*use App\Http\Controllers\ProductControllerC;
 Route::get('/product', [ProductControllerC::class, 'listeProduits']);
