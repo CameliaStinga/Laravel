@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EquipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,20 +16,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ContactController;
 
 Route::get('/product/{id}', [ProductController::class,'detailProduit']);
+
 Route::get('/product', [ProductController::class,'afficheProduct']);
 
 Route::get('/contact', [contactController::class,'afficheContact']);
 
+Route::get('/productname', [ProductController::class,'listenomProduits']);
 
-use App\Http\Controllers\HomeController;
+Route::get('/productprice', [ProductController::class,'listeprixcroissantProduits']);
+
+Route::get('/productnameprice/{id}', [ProductController::class,'nomprixProduit']);
+
 Route::get('/', [HomeController::class, 'homePage']);
 
-
-use App\Http\Controllers\EquipeController;
 Route::get('/equipe', [EquipeController::class, 'equiPe']);
 
 

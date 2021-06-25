@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <h3 class="card-title">Catalogue</h3>
+    <h3 class="card-title">Liste produits nom</h3>
 
-@foreach ($listeproduits as $product)
+    @foreach ($produit as $product)
 
     </div>
     <div class="card" style="width: 18rem;">
@@ -29,9 +29,6 @@
 
     </div>
 
-@endforeach
-
-
-
+    @endforeach
 
 @stop
