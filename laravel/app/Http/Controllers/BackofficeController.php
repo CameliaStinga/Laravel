@@ -12,10 +12,10 @@ class BackofficeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexProduct()
+    public function index()
     {
-        $produit = Product::orderBy('name')->get();
-        return view('backoffice',['produit' => $produit]);
+        $produit = Product::all();
+        return view('backoffice/indexProduct',['produit' => $produit]);
     }
 
     /**
@@ -25,7 +25,7 @@ class BackofficeController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice/formulaireProduit');
     }
 
     /**
@@ -36,8 +36,23 @@ class BackofficeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produit = Product::create ([
+                'id' => $request->input('id'),
+                'name' => $request->input('name'),
+                'price' => $request->input('price'),
+                'weight' => $request->input('weight'),
+                'quantity' => $request->input('quantity'),
+                'available' => $request->input('available'),
+                'size' => $request->input('size'),
+                'categories_id' => $request->input('categories_id'),
+                'color' => $request->input('color'),
+                'form' => $request->input('form'),
+            ]);
+
+
+        return redirect()->route ('backoffice/resultformulaireProduit.show', [$produit]);
     }
+
 
     /**
      * Display the specified resource.
@@ -45,9 +60,10 @@ class BackofficeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        return view('backoffice/articles.edit', [
+            'produit' => $produit]);
     }
 
     /**

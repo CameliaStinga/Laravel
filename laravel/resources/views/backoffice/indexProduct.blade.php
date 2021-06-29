@@ -2,11 +2,14 @@
 
 @section('content')
 
+
     <h3 class="card-title">Liste produits nom</h3>
+
+    <a href="{{route('indexProduct.create')}}"  class="btn btn-primary">Nouveau produit</a>
 
     @foreach ($produit as $product)
 
-    </div>
+
     <div class="card" style="width: 18rem;">
 
         <div class="card-body">

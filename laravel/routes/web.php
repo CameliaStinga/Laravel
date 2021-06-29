@@ -30,15 +30,23 @@ Route::get('/productprice', [ProductController::class,'listeprixcroissantProduit
 
 Route::get('/productnameprice/{id}', [ProductController::class,'nomprixProduit']);
 
-Route::get('/', [HomeController::class, 'homePage']);
 
-Route::get('/equipe', [EquipeController::class, 'equiPe']);
 
-Route::get('/backoffice',[BackofficeController::class, 'indexProduct'] );
 
-//Route::get('/backoffice', function () {
-   //return view('backoffice');
-//});
+Route::get('/', [HomeController::class,'homePage']);
+
+Route::get('/equipe', [EquipeController::class,'equiPe']);
+
+
+//Route::get('/backoffice',[BackofficeController::class,'indexProduct'] );
+
+//Route::get('/backoffice/create',[BackofficeController::class, 'create'] );
+//Route::post('/backoffice/store',[BackofficeController::class, 'store'] );
+
+
+Route::resource('backoffice/indexProduct',BackofficeController::class);
+
+
 
 /*use App\Http\Controllers\ProductControllerC;
 Route::get('/product', [ProductControllerC::class, 'listeProduits']);
