@@ -2,10 +2,17 @@
 
 @section('content')
 
+    <div class="uper">
 
-    <h3 class="card-title">Liste produits nom</h3>
+        @if(session()->get('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div><br />
+        @endif
+    <h3 class="card-title">Liste produits</h3>
+            <a href="{{ route('indexProduct.edit', $product->id)}}" class="btn btn-primary">Modifier</a>
+            <a href="{{route('indexProduct.create')}}"  class="btn btn-primary">Nouveau produit</a>
 
-    <a href="{{route('indexProduct.create')}}"  class="btn btn-primary">Nouveau produit</a>
 
     @foreach ($produit as $product)
 
@@ -30,7 +37,11 @@
             <li class="list-group-item">Couleur: {{$product->color}}</li>
             <li class="list-group-item">Forme: {{$product->form}}</li>
         </ul>
-
+        <form action="{{ route('backoffice/indexProduct.destroy', $product->id)}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">Supprimer</button>
+        </form>
     </div>
 
     @endforeach

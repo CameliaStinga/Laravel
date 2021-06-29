@@ -15,7 +15,7 @@ class BackofficeController extends Controller
     public function index()
     {
         $produit = Product::all();
-        return view('backoffice/indexProduct',['produit' => $produit]);
+        return view('backoffice/indexProduct',compact('produit'));
     }
 
     /**
@@ -25,7 +25,7 @@ class BackofficeController extends Controller
      */
     public function create()
     {
-        return view('backoffice/formulaireProduit');
+        return view('backoffice/indexProduct.create');
     }
 
     /**
@@ -36,21 +36,22 @@ class BackofficeController extends Controller
      */
     public function store(Request $request)
     {
-        $produit = Product::create ([
-                'id' => $request->input('id'),
-                'name' => $request->input('name'),
-                'price' => $request->input('price'),
-                'weight' => $request->input('weight'),
-                'quantity' => $request->input('quantity'),
-                'available' => $request->input('available'),
-                'size' => $request->input('size'),
-                'categories_id' => $request->input('categories_id'),
-                'color' => $request->input('color'),
-                'form' => $request->input('form'),
-            ]);
+        $validatedData = $request->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'price' => 'required',
+            'weight' => 'required',
+            'quantity' => 'required',
+            'available' => 'required',
+            'size' => 'required',
+            'categories_id' => 'required',
+            'color' => 'required',
+            'form' => 'required'
+        ]);
+        $produit = Product::create ($validatedData);
 
 
-        return redirect()->route ('backoffice/resultformulaireProduit.show', [$produit]);
+        return redirect('/backoffice/indexProduct')->with('succes','Produit ajouté');
     }
 
 
@@ -62,8 +63,7 @@ class BackofficeController extends Controller
      */
     public function show(int $id)
     {
-        return view('backoffice/articles.edit', [
-            'produit' => $produit]);
+
     }
 
     /**
@@ -74,7 +74,9 @@ class BackofficeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produit = Product::findOrFail($id);
+
+        return view('backoffice/indexProduct.edit', compact('produit'));
     }
 
     /**
@@ -86,8 +88,24 @@ class BackofficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'price' => 'required',
+            'weight' => 'required',
+            'quantity' => 'required',
+            'available' => 'required',
+            'size' => 'required',
+            'categories_id' => 'required',
+            'color' => 'required',
+            'form' => 'required'
+        ]);
+
+        Product::whereId($id)->update($validatedData);
+
+        return redirect('/backofficeindexProduct')->with('success', 'Produit mis à jour avec succèss');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -97,6 +115,9 @@ class BackofficeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produit = Product::findOrFail($id);
+        $produit->delete();
+
+        return redirect('/backoffice/indexProduct')->with('success', 'Produit supprimé avec succèss');
     }
 }
