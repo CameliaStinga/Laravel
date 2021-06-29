@@ -10,7 +10,7 @@
             </div><br />
         @endif
     <h3 class="card-title">Liste produits</h3>
-            <a href="{{ route('indexProduct.edit', $product->id)}}" class="btn btn-primary">Modifier</a>
+
             <a href="{{route('indexProduct.create')}}"  class="btn btn-primary">Nouveau produit</a>
 
 
@@ -37,6 +37,7 @@
             <li class="list-group-item">Couleur: {{$product->color}}</li>
             <li class="list-group-item">Forme: {{$product->form}}</li>
         </ul>
+        <a href="{{ route('indexProduct.edit', $product->id)}}" class="btn btn-primary">Modifier</a>
         <form action="{{ route('backoffice/indexProduct.destroy', $product->id)}}" method="post">
             @csrf
             @method('DELETE')
