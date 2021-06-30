@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 class BackofficeController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class BackofficeController extends Controller
     public function index()
     {
         $produit = Product::all();
-        return view('backoffice.index',compact('produit'));
+        return view('backoffice.index', compact('produit'));
 
     }
 
@@ -32,7 +33,7 @@ class BackofficeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,10 +41,10 @@ class BackofficeController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'id' => 'required',
+            //'id' => 'required',
             'name' => 'required',
             'price' => 'required',
-            'picture'=>'',
+            'picture' => '',
             'weight' => 'required',
             'quantity' => 'required',
             'available' => 'required',
@@ -57,33 +58,32 @@ class BackofficeController extends Controller
             return redirect('/backoffice/index/create')
                 ->withErrors($validator);
 
+        } else {
+            $produit = new Product;
+            //$produit->id =$request->input()('id');
+            $produit->name = $request->Input('name');
+            $produit->price = $request->Input('price');
+            $produit->picture = $request->Input('picture');
+            $produit->weight = $request->Input('weight');
+            $produit->quantity = $request->Input('quantity');
+            $produit->available = $request->Input('available');
+            $produit->size = $request->Input('size');
+            $produit->categories_id = $request->Input('categories_id');
+            $produit->color = $request->Input('color');
+            $produit->form = $request->Input('form');
+            $produit->save();
+
+
         }
-else{
-    $produit=new Product;
-    $produit->id =$request->input('id');
-    $produit->name =$request-> Input('name');
-    $produit->price = $request-> Input('price');
-    $produit->picture = $request-> Input('picture');
-    $produit->weight =$request-> Input('weight');
-    $produit->quantity = $request->Input('quantity');
-    $produit->available = $request->Input('available');
-    $produit->size =$request->Input('size');
-    $produit->categories_id = $request->Input('categories_id');
-    $produit->color = $request->Input('color');
-    $produit->form = $request->Input('form');
-    $produit->save();
 
-
-}
-
-        return redirect()-> route('index.index')->with('success','Produit ajouté.');
+        return redirect()->route('index.index')->with('success', 'Produit ajouté.');
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(int $id)
@@ -98,7 +98,7 @@ else{
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -111,8 +111,8 @@ else{
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -139,7 +139,7 @@ else{
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
