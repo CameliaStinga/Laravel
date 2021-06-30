@@ -11,7 +11,7 @@
         @endif
     <h3 class="card-title">Liste produits</h3>
 
-            <a href="{{route('indexProduct.create')}}"  class="btn btn-primary">Nouveau produit</a>
+            <a href="{{route('index.create')}}"  class="btn btn-primary">Nouveau produit</a>
 
 
     @foreach ($produit as $product)
@@ -37,8 +37,9 @@
             <li class="list-group-item">Couleur: {{$product->color}}</li>
             <li class="list-group-item">Forme: {{$product->form}}</li>
         </ul>
-        <a href="{{ route('indexProduct.edit', $product->id)}}" class="btn btn-primary">Modifier</a>
-        <form action="{{ route('backoffice/indexProduct.destroy', $product->id)}}" method="post">
+        <form action="{{ route('index.destroy', $product->id)}}" method="post">
+            <a class="btn btn-info" href="{{ route('index.show',$product->id) }}">Show</a>
+            <a href="{{ route('index.edit', $product->id)}}" class="btn btn-primary">Modifier</a>
             @csrf
             @method('DELETE')
             <button class="btn btn-danger" type="submit">Supprimer</button>

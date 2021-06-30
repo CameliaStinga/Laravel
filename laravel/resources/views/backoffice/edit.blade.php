@@ -9,9 +9,11 @@
     </div>
 
     <div class="card-body">
-
+        <a class="btn btn-primary" href="{{ route('index.index') }}"> Back</a>
         @if ($errors->any())
             <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -20,10 +22,12 @@
             </div><br />
         @endif
 
-        <form method="post" action="{{ route('backoffice/indexProduct.update', $produit->id ) }}">
+        <form method="post" action="{{ route('index.update', $produit->id ) }}">
             <div class="form-group">
                 @csrf
                 @method('PATCH')
+
+
                 <label for="name">Name :</label>
                 <input type="text" class="form-control" name="name" value="{{ $produit->name }}"/>
             </div>

@@ -44,7 +44,7 @@ Route::get('/equipe', [EquipeController::class,'equiPe']);
 //Route::post('/backoffice/store',[BackofficeController::class, 'store'] );
 
 
-Route::resource('backoffice/indexProduct',BackofficeController::class);
+Route::resource('backoffice/index',BackofficeController::class);
 
 
 

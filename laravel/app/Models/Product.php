@@ -9,7 +9,7 @@ class Product extends Model
 {
 
     use HasFactory;
-
+    public $timestamps = false;
     public static function create(array $validatedData)
     {
     }

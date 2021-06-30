@@ -10,6 +10,7 @@
 
         @if ($errors->any())
             <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -28,7 +29,7 @@
                 </ul>
             </div><br />
         @endif
-        <form class="" action="/backoffice/indexProduct.store" method="post">
+        <form class="" action="/backoffice/index" method="post">
             {{ csrf_field() }}
             <div class="form-group row">
                 <label for="id" class="col-sm-2 col-form-label">id</label>
