@@ -40,12 +40,12 @@ class BackofficeController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'id' => 'required',
+            //'id' => 'required',
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
             'picture'=>'',
             'weight' => 'required',
-            'quantity' => 'required',
+            'quantity' => 'required|min:0',
             'available' => 'required',
             'size' => 'required',
             'categories_id' => 'required',
@@ -55,12 +55,12 @@ class BackofficeController extends Controller
 
         if ($validator->fails()) {
             return redirect('/backoffice/index/create')
-                ->withErrors($validator);
-
+              ->withErrors($validator);
+            //return back()->withErrors($validator)->withInput();
         }
 else{
     $produit=new Product;
-    $produit->id =$request->input('id');
+    //$produit->id =$request->input('id');
     $produit->name =$request-> Input('name');
     $produit->price = $request-> Input('price');
     $produit->picture = $request-> Input('picture');

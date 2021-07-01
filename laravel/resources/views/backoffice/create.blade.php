@@ -19,24 +19,10 @@
             </div><br />
         @endif
 
-    <div class="panel-body">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div><br />
-        @endif
+
         <form class="" action="/backoffice/index" method="post">
             {{ csrf_field() }}
-            <div class="form-group row">
-                <label for="id" class="col-sm-2 col-form-label">id</label>
-                <div class=" col-md-3">
-                 <input type="text" class="form-control" name="id" placeholder="id">
-              </div>
-            </div>
+
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">name</label>
                 <div class=" col-md-3">
