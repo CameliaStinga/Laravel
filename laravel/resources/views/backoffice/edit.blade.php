@@ -56,8 +56,8 @@
                 <input type="text" class="form-control" name="size" value="{{ $produit->size }}"/>
             </div>
             <div class="form-group">
-                <label for="cases">categories_id :</label>
-                <input type="text" class="form-control" name="categories_id" value="{{ $produit->categories_id }}"/>
+                <label for="cases">categorie_id :</label>
+                <input type="text" class="form-control" name="categorie_id" value="{{ $produit->categorie_id }}"/>
             </div>
             <div class="form-group">
                 <label for="cases">color :</label>

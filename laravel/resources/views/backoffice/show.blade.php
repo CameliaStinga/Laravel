@@ -29,7 +29,7 @@
             <li class="list-group-item">Quantité: {{$produit->quantity}}</li>
             <li class="list-group-item">Disponibilité: {{$produit->available}}</li>
             <li class="list-group-item">Taille: {{$produit->size}}</li>
-            <li class="list-group-item">Catégorie: {{$produit->categories_id}}</li>
+            <li class="list-group-item">Catégorie: {{$produit->categorie_id}}</li>
             <li class="list-group-item">Couleur: {{$produit->color}}</li>
             <li class="list-group-item">Forme: {{$produit->form}}</li>
         </ul>

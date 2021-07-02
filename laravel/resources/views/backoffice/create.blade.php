@@ -30,10 +30,10 @@
                     </ul>
                 </div><br/>
             @endif
-            <form class="" action="/backoffice/index" method="post">
+            <form class="" action="{{route('index.store')}}" method="post">
                 {{ csrf_field() }}
 
-                 
+
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">name</label>
                     <div class=" col-md-3">
@@ -80,12 +80,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="categories_id" class="col-sm-2 col-form-label">categories_id</label>
+                    <label for="categorie_id" class="col-sm-2 col-form-label">categorie_id</label>
                     <div class=" col-md-3">
-                        <select name="categories_id" class="form-control">
+                        <select name="categorie_id" class="form-control">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                 </div>

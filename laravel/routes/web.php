@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -45,8 +48,9 @@ Route::get('/equipe', [EquipeController::class,'equiPe']);
 
 
 Route::resource('backoffice/index',BackofficeController::class);
-
-
+Route::resource('customers',BackofficeController::class);
+Route::resource('orders',OrderController::class);
+Route::resource('categories', CategoryController::class);
 
 /*use App\Http\Controllers\ProductControllerC;
 Route::get('/product', [ProductControllerC::class, 'listeProduits']);

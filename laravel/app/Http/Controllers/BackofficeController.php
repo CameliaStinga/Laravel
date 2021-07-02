@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,19 +12,28 @@ class BackofficeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
+
         $produit = Product::all();
+
+        //with('category')->get();
+
+
+        //dd($produit);
+
         return view('backoffice.index', compact('produit'));
+
+
 
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -34,7 +44,7 @@ class BackofficeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -43,13 +53,13 @@ class BackofficeController extends Controller
         $validator = Validator::make($request->all(), [
             //'id' => 'required',
             'name' => 'required',
-       '    price' => 'required|numeric|min:0',
+            'price' => 'required|numeric|min:0',
             'picture'=>'',
             'weight' => 'required',
             'quantity' => 'required|min:0',
             'available' => 'required',
             'size' => 'required',
-            'categories_id' => 'required',
+            'categorie_id' => 'required',
             'color' => 'required',
             'form' => 'required'
         ]);
@@ -69,7 +79,7 @@ else{
     $produit->quantity = $request->Input('quantity');
     $produit->available = $request->Input('available');
     $produit->size =$request->Input('size');
-    $produit->categories_id = $request->Input('categories_id');
+    $produit->categorie_id = $request->Input('categorie_id');
     $produit->color = $request->Input('color');
     $produit->form = $request->Input('form');
     $produit->save();
@@ -88,7 +98,7 @@ else{
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(int $id)
     {
@@ -129,7 +139,7 @@ else{
             'quantity' => 'required',
             'available' => 'required',
             'size' => 'required',
-            'categories_id' => 'required',
+            'categorie_id' => 'required',
             'color' => 'required',
             'form' => 'required'
         ]);
@@ -153,4 +163,9 @@ else{
 
         return redirect('/backoffice/index')->with('success', 'Produit supprimé avec succèss');
     }
+
+    //public function (){
+
+
+
 }
