@@ -9,7 +9,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\BackofficeController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,66 +21,48 @@ use App\Http\Controllers\BackofficeController;
 */
 
 Route::get('/product/{id}', [ProductController::class,'detailProduit']);
-
 Route::get('/product', [ProductController::class,'afficheProduct']);
-
-Route::get('/contact', [contactController::class,'afficheContact']);
-
-Route::get('/productname', [ProductController::class,'listenomProduits']);
-
-Route::get('/productprice', [ProductController::class,'listeprixcroissantProduits']);
-
-Route::get('/productnameprice/{id}', [ProductController::class,'nomprixProduit']);
-
-
-
-
-Route::get('/', [HomeController::class,'homePage']);
-
-Route::get('/equipe', [EquipeController::class,'equiPe']);
-
-
-//Route::get('/backoffice',[BackofficeController::class,'indexProduct'] );
-
-//Route::get('/backoffice/create',[BackofficeController::class, 'create'] );
-//Route::post('/backoffice/store',[BackofficeController::class, 'store'] );
-
-
-Route::resource('backoffice/index',BackofficeController::class);
+Route::resource('backoffice/index',BackofficeController::class)->middleware('auth:');
 Route::resource('customers',BackofficeController::class);
 Route::resource('orders',OrderController::class);
 Route::resource('categories', CategoryController::class);
 
+
 /*use App\Http\Controllers\ProductControllerC;
 Route::get('/product', [ProductControllerC::class, 'listeProduits']);
 Route::get('/product/{id}', [ProductControllerC::class, 'detailsProduit']);
-
-
 use App\Http\Controllers\CartController;
 Route::get('/cart', [CartController::class, 'panier']);
-
-
 //Route::get('/', function () {
    // return view('helloworld');
 //});
-
-
 /*Route::get('/', function () {
     return ('Home page');
 });
-
-
 Route::get('/product', function () {
     return ('Liste de produits');
 });
 
 
-Route::get('/product/{id}', function ($id) {
-    return ('Fiche du produit' . $id);
-});
+Route::get('/', [HomeController::class, 'homePage']);
+//Route::get('/product', [ProductController::class, 'product']);
+//Route::get('/product/{id}', [ProductController::class, 'detailProduct']);
+Route::get('/cart', [CartController::class, 'cart']);
+//Route::get('backoffice/{backoffice}', [BackofficeController::class, 'show']);
+Route::resource('backoffice', BackofficeController::class);
+Route::resource('category', CategoryController::class);
+Route::resource('product', ProductController::class);
+//Route::resource('customer', CustomerController::class);
+Route::resource('order', OrderController::class);
 
-
-Route::get('/cart', function () {
-    return ('Panier');
-});
 */
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

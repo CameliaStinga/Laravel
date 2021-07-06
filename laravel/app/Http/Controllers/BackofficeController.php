@@ -59,7 +59,7 @@ class BackofficeController extends Controller
             'quantity' => 'required|min:0',
             'available' => 'required',
             'size' => 'required',
-            'categorie_id' => 'required',
+            'category_id' => 'required',
             'color' => 'required',
             'form' => 'required'
         ]);
@@ -139,7 +139,7 @@ else{
             'quantity' => 'required',
             'available' => 'required',
             'size' => 'required',
-            'categorie_id' => 'required',
+            'category_id' => 'required',
             'color' => 'required',
             'form' => 'required'
         ]);

@@ -29,7 +29,7 @@
 
                 @foreach($commande->products as $product)
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> id: {{$product->id}} <br> nom:{{$product->name}} </li>
+                        <li class="list-group-item"> id: {{$product->id}} <br> nom:{{$product->name}} <br> Quantité Commandée: {{$product->pivot->quantity}} </li>
                     </ul>
     @endforeach
     @endforeach

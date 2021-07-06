@@ -1,3 +1,6 @@
+<?php header("Status: 301 Moved Permanently", false, 301);
+header("Location: http://www.example.com/nouvelle-page.htm");
+exit();?>
 @extends('layouts.main')
 
 @section('content')

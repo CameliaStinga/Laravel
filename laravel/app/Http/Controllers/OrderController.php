@@ -28,11 +28,12 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
 
-        // dd($order);
+         //dd($order->products);
 
         // show the view and pass the "produit" to it
         return View('orders.show')
             ->with('order', $order);
     }
+
 
 }
